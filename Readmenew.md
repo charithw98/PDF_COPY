@@ -29,7 +29,7 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
 Users can run the application by double clicking the downloaded .exe file.
 
 ## Contact
-For any inquiries or issues, feel free to contact us at support@organization.com.
+For any inquiries or issues, feel free to contact system department.
 
 
 
