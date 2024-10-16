@@ -1,21 +1,21 @@
-name: Build Executable
+name: Build and Package Executable
 
-# Trigger the workflow on push or pull request events to the 'main' branch
 on:
   push:
     branches:
       - main
+    
   pull_request:
     branches:
       - main
+    
 
-# Define the jobs for the workflow
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+    runs-on: windows-latest
 
     steps:
-      # Step 1: Checkout the repository
+      # Step 1: Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -23,25 +23,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # Specify the Python version (3.x)
+          python-version: '3.10'
 
-      # Step 3: Install required dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pyinstaller
-          # You can install any other dependencies your project might require (e.g., `openpyxl`, `msoffcrypto`)
-          pip install openpyxl msoffcrypto
+          pip install openpyxl
+          pip install git+https://github.com/nolze/msoffcrypto-tool.git  # Install msoffcrypto-tool directly from GitHub
 
-      # Step 4: Build the Python project as an executable
-      - name: Build executable with PyInstaller
+      # Step 4: Build the project into an executable
+      - name: Build executable
         run: |
-          pyinstaller --onefile src/main.py  # Replace with the entry point of your application
-          ls -al dist/  # Verify that the executable was created in the 'dist' folder
+          pyinstaller --onefile src/main.py
+          dir dist  # Show the output executable directory
 
-      # Step 5: Upload the built executable as an artifact
+      # Step 5: Upload the executable as an artifact
       - name: Upload executable
         uses: actions/upload-artifact@v3
         with:
-          name: executable
-          path: dist/main  # Path to the built executable (adjust based on your PyInstaller setup)
+          name: python-app-executable
+          path: dist/main.exe
