@@ -62,8 +62,24 @@ To build the executable, we use GitHub Actions for automation.
    ```bash
    git checkout -b feature-branch
 
-1. **Commit Changes**: After making your changes, commit them.
+2. **Commit Changes**: After making your changes, commit them.
    ```bash
    git add .
    git commit -m "Your detailed commit message"
 
+3. **Push Changes**: Push your branch to the remote repository.
+   ```bash
+   git checkout -b feature-branch
+
+4. **Submit a Pull Request**: Create a pull request to merge your branch into the *main* branch.
+
+## GitHub Action for Building the Executable
+This project includes a GitHub Action that automates the process of building a Windows *.exe* file from the Python scripts. Here's an overview of the workflow:
+
+  - The action is triggered on pushes to the *main* branch, as well as on pull requests.
+  - It checks out the code, installs Python 3.10, installs the required dependencies, builds the executable     using **PyInstaller**, and uploads the result as an artifact.
+
+### GitHub Action Workflow   
+Here’s the complete GitHub Action *.yml* file used to build the executable:
+   ```bash
+   git checkout -b feature-branch
