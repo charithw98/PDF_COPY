@@ -37,12 +37,12 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
 2. **Install Python**: Download and install Python 3.10+ from python.org.
 3. **Install Required Dependencies**:Open a terminal (Command Prompt or PowerShell) and run:
    ```bash
-  pip install openpyxl
-  pip install git+https://github.com/nolze/msoffcrypto-tool.git
+    pip install openpyxl
+    pip install git+https://github.com/nolze/msoffcrypto-tool.git
 
 4. **Run the Application**:To run the application from the terminal:
    ```bash
-  python src/main.py
+    python src/main.py
 
 ### Building an Executable (.exe) for Windows:
 To build the executable, we use GitHub Actions for automation.
