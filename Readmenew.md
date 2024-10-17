@@ -44,7 +44,26 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
    ```bash
     python src/main.py
 
-### Building an Executable (.exe) for Windows:
+## Building an Executable (.exe) for Windows:
 To build the executable, we use GitHub Actions for automation.
 1. **GitHub Action Workflow**: A workflow is set up to build the project into an .exe using **PyInstaller**. You can find the workflow file at .github/workflows/build.yml.
+
+2. **Triggering the Build**:Any push or Pull request to the main branches will trigger the build process.
+
+## How to Access the Built Executable from GitHub Actions   
+1. After each successful build on GitHub, an artifact named**python-app-executable** is uploaded.
+2. To download the executable:
+   - Go to the **Actions** tab in your GitHub repository.
+   - Select the latest build run under **Workflows**.
+   - At the bottom of the page, under **Artifacts**, you'll find the *python-app-executable*. Download it        and extract the zip file to find your *.exe*.
+
+## Contributing
+1. **Create a Branch**: Always create a new branch when working on features or bug fixes.
+   ```bash
+   git checkout -b feature-branch
+
+1. **Commit Changes**: After making your changes, commit them.
+   ```bash
+   git add .
+   git commit -m "Your detailed commit message"
 
