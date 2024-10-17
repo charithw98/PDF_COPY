@@ -6,7 +6,7 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
 ## Features
 - Extract data from Excel files and overlay onto PDFs.
 - Supports encrypted PDF files.
-
+- Automatically builds an executable for Windows using GitHub Actions.
 
 ## System Requirements
 
@@ -25,21 +25,13 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
   - Python 3.10+
   - PyInstaller (for creating the executable)
 
- ## Build Steps.
-  - Clone the repository.
-  - Install project dependencies:
-  - Push changes to GitHub and trigger the build:
-  - Add the .yml file in .github/workflows/ directory.
-  - Commit the changes and push them to the main or dev branch.
-  - GitHub Actions automatically builds the project:
-    (The workflow installs dependencies, builds the .exe file using PyInstaller, and uploads it as an            artifact.)
-  - Download the executable from the "Actions" tab on GitHub once the build is complete.
+## Installation Instructions
 
-## Run the Applicatin.
-Users can run the application by double-clicking the downloaded .exe file.
+### Setting Up the Development Environment (Windows):
 
-## Contact
-For any inquiries or issues, feel free to contact system department.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/YOUR_ORG/PDF_OVERLAY.git
+   cd PDF_OVERLAY
 
-
-
+2. **Install Python**: Download and install Python 3.10+ from python.org.
