@@ -82,4 +82,52 @@ This project includes a GitHub Action that automates the process of building a W
 ### GitHub Action Workflow   
 Here’s the complete GitHub Action *.yml* file used to build the executable:
    ```bash
-   git checkout -b feature-branch
+   name: Build and Package Executable
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install openpyxl
+          pip install git+https://github.com/nolze/msoffcrypto-tool.git
+
+      # Step 4: Build the project into an executable
+      - name: Build executable
+        run: |
+          pyinstaller --onefile src/main.py
+          dir dist  # Show the output executable directory
+
+      # Step 5: Upload the executable as an artifact
+      - name: Upload executable
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-app-executable
+          path: dist/main.exe
+
+### Run the Application
