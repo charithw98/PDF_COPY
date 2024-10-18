@@ -31,7 +31,7 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/YOUR_ORG/PDF_OVERLAY.git
+   git clone https://github.com/vipulasrilanka/PDF_OVERLAY.git
    cd PDF_OVERLAY
 
 2. **Install Python**: Download and install Python 3.10+ from python.org.
@@ -39,6 +39,10 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
    ```bash
     pip install openpyxl
     pip install git+https://github.com/nolze/msoffcrypto-tool.git
+   **And install this modules too**
+   ```bash
+    pip install PyPDF2
+    pip install reportlab
 
 4. **Run the Application**:To run the application from the terminal:
    ```bash
