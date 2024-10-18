@@ -39,6 +39,7 @@ This project provides a solution for overlaying PDFs with data extracted from Ex
    ```bash
     pip install openpyxl
     pip install git+https://github.com/nolze/msoffcrypto-tool.git
+    ```
    **And install this modules too**
    ```bash
     pip install PyPDF2
